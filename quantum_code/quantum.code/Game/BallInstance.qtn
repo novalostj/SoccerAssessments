@@ -1,0 +1,6 @@
+component BallInstance {
+	entity_ref instance;
+	entity_ref lastHolderRef;
+	bool bounceBack;
+	int bouceBackForce;
+}
