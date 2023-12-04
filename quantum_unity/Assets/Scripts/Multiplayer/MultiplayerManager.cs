@@ -156,8 +156,9 @@ public class MultiplayerManager : MonoBehaviour, IConnectionCallbacks, IMatchmak
         if (State != GameState.CONNECTED || _localBalancingClient == null || !_localBalancingClient.InRoom)
             return;
 
-        State = GameState.DISCONNECTED;
         GameOver?.Invoke();
+        _localBalancingClient.OpLeaveRoom(true);
+        State = GameState.DISCONNECTED;
         QuantumRunner.ShutdownAll();
     }
 
@@ -175,13 +176,11 @@ public class MultiplayerManager : MonoBehaviour, IConnectionCallbacks, IMatchmak
 
     public void OnDisconnected(DisconnectCause cause)
     {
-        if (cause == DisconnectCause.ServerTimeout)
+        if (!_localBalancingClient.IsConnected)
             _localBalancingClient.ConnectToRegionMaster(PhotonServerSettings.Instance.AppSettings.FixedRegion);
-        else
-        {
-            GameOver?.Invoke();
-            State = GameState.DISCONNECTED;
-        }
+       
+        GameOver?.Invoke();
+        State = GameState.DISCONNECTED;
 
         Debug.Log(cause);
     }

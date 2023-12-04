@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Settings:
     Identifier:
-      Path: Resources/DB/Game
+      Path: Resources/DB/ScenesSettings/Game
       Guid:
         Value: 168823222239456708
     UserAsset:

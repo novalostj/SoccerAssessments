@@ -1,4 +1,5 @@
 ﻿using Photon.Deterministic;
+using Quantum.Helpers;
 using System;
 
 namespace Quantum.Game
@@ -8,6 +9,9 @@ namespace Quantum.Game
 
         public void OnPlayerConnected(Frame f, PlayerRef player)
         {
+            if (f.GetActivePlayerCount() <= 1)
+                return;
+
             ComponentSet anyBalls = ComponentSet.Create<BallInstance>();
             ComponentFilter<Transform3D> filteredBalls = f.Filter<Transform3D>(default, anyBalls);
 

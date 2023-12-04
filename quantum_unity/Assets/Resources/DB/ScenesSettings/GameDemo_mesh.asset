@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Settings:
     Identifier:
-      Path: Resources/DB/GameDemo_mesh
+      Path: Resources/DB/ScenesSettings/GameDemo_mesh
       Guid:
         Value: 1090595483060781529
     Data: 00000000

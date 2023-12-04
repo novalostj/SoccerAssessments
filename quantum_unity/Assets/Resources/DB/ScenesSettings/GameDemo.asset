@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Settings:
     Identifier:
-      Path: Resources/DB/GameDemo
+      Path: Resources/DB/ScenesSettings/GameDemo
       Guid:
         Value: 1710471675203725834
     UserAsset:
@@ -85,7 +85,9 @@ MonoBehaviour:
       MutableMode: 0
     MapEntities: []
   Prototypes:
-  - PlayerLink: []
+  - BallInstance: []
+    GoalInstance: []
+    PlayerLink: []
     CharacterController2D: []
     CharacterController3D: []
     NavMeshAvoidanceAgent: []
@@ -176,7 +178,9 @@ MonoBehaviour:
     View: []
     PhysicsJoints2D: []
     PhysicsJoints3D: []
-  - PlayerLink: []
+  - BallInstance: []
+    GoalInstance: []
+    PlayerLink: []
     CharacterController2D: []
     CharacterController3D:
     - Config:

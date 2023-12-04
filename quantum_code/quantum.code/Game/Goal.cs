@@ -1,4 +1,5 @@
 ﻿using Photon.Deterministic;
+using Quantum.Helpers;
 using System;
 
 namespace Quantum.Game
@@ -13,7 +14,6 @@ namespace Quantum.Game
             EntityRef lastBallHolder = ballInstance->lastHolderRef;
             PlayerLink* playerLink = f.Unsafe.GetPointer<PlayerLink>(lastBallHolder);
             playerLink->score++;
-            f.Events.Goal();
 
             ResetBall(f);
             GivePlayersAbility(f);
@@ -36,12 +36,18 @@ namespace Quantum.Game
             */
         }
 
+        
+
         private static void ResetBall(Frame f)
         {
             ComponentSet anyBalls = ComponentSet.Create<BallInstance>();
             ComponentFilter<Transform3D> filteredBalls = f.Filter<Transform3D>(default, anyBalls);
+
             while (filteredBalls.Next(out var ball, out var ballTransform))
             {
+                if (f.Unsafe.TryGetPointer<PhysicsBody3D>(ball, out var body))
+                    body->Velocity = FPVector3.Zero;
+
                 ballTransform.Position = new FPVector3(f.Global->RngSession.Next(-4, 4), 1, 0);
                 f.Set(ball, ballTransform);
             }
@@ -51,6 +57,7 @@ namespace Quantum.Game
         {
             ComponentSet anyPlayer = ComponentSet.Create<PlayerLink>();
             ComponentFilter<PlayerLink> filteredPlayers = f.Filter<PlayerLink>(default, anyPlayer);
+
             while (filteredPlayers.Next(out var playerEntity, out var playerLink))
             {
                 playerLink.bounceBallAbility = true;

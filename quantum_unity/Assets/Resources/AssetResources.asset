@@ -41,63 +41,63 @@ MonoBehaviour:
         Id:
           Value: 5
       ResourcePath: DB/Configs/SimulationConfig
-    - Path: Resources/DB/SingletonPoints|EntityView
+    - Path: Resources/DB/Prefabs/SingletonPoints|EntityView
       AssetRef:
         Id:
           Value: 152956546400980604
-      ResourcePath: DB/SingletonPoints
-    - Path: Resources/DB/Game
+      ResourcePath: DB/Prefabs/SingletonPoints
+    - Path: Resources/DB/ScenesSettings/Game
       AssetRef:
         Id:
           Value: 168823222239456708
-      ResourcePath: DB/Game
-    - Path: Resources/DB/Goal|EntityView
+      ResourcePath: DB/ScenesSettings/Game
+    - Path: Resources/DB/Prefabs/Goal|EntityView
       AssetRef:
         Id:
           Value: 845425881579489525
-      ResourcePath: DB/Goal
-    - Path: Resources/DB/GameDemo_mesh
+      ResourcePath: DB/Prefabs/Goal
+    - Path: Resources/DB/ScenesSettings/GameDemo_mesh
       AssetRef:
         Id:
           Value: 1090595483060781529
-      ResourcePath: DB/GameDemo_mesh
-    - Path: Resources/DB/PlayerCharacter|EntityPrototype
+      ResourcePath: DB/ScenesSettings/GameDemo_mesh
+    - Path: Resources/DB/Prefabs/PlayerCharacter|EntityPrototype
       AssetRef:
         Id:
           Value: 1196875585329151173
-      ResourcePath: DB/PlayerCharacter
-    - Path: Resources/DB/GameDemo
+      ResourcePath: DB/Prefabs/PlayerCharacter
+    - Path: Resources/DB/ScenesSettings/GameDemo
       AssetRef:
         Id:
           Value: 1710471675203725834
-      ResourcePath: DB/GameDemo
-    - Path: Resources/DB/SingletonPoints|EntityPrototype
+      ResourcePath: DB/ScenesSettings/GameDemo
+    - Path: Resources/DB/Prefabs/SingletonPoints|EntityPrototype
       AssetRef:
         Id:
           Value: 1876064441820278262
-      ResourcePath: DB/SingletonPoints
-    - Path: Resources/DB/Ball|EntityPrototype
+      ResourcePath: DB/Prefabs/SingletonPoints
+    - Path: Resources/DB/Prefabs/Ball|EntityPrototype
       AssetRef:
         Id:
           Value: 2103452126658343239
-      ResourcePath: DB/Ball
-    - Path: Resources/DB/Goal|EntityPrototype
+      ResourcePath: DB/Prefabs/Ball
+    - Path: Resources/DB/Prefabs/Goal|EntityPrototype
       AssetRef:
         Id:
           Value: 2124832689436436617
-      ResourcePath: DB/Goal
-    - Path: Resources/DB/Game_mesh
+      ResourcePath: DB/Prefabs/Goal
+    - Path: Resources/DB/ScenesSettings/Game_mesh
       AssetRef:
         Id:
           Value: 2265563460568577266
-      ResourcePath: DB/Game_mesh
-    - Path: Resources/DB/Ball|EntityView
+      ResourcePath: DB/ScenesSettings/Game_mesh
+    - Path: Resources/DB/Prefabs/Ball|EntityView
       AssetRef:
         Id:
           Value: 4173101497107485972
-      ResourcePath: DB/Ball
-    - Path: Resources/DB/PlayerCharacter|EntityView
+      ResourcePath: DB/Prefabs/Ball
+    - Path: Resources/DB/Prefabs/PlayerCharacter|EntityView
       AssetRef:
         Id:
           Value: 4402680332648294723
-      ResourcePath: DB/PlayerCharacter
+      ResourcePath: DB/Prefabs/PlayerCharacter

@@ -37,6 +37,48 @@ namespace Quantum.Prototypes.Unity {
     }
   }
   [System.SerializableAttribute()]
+  [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.PlayerLink))]
+  public class PlayerLink_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.PlayerLink_Prototype> {
+    public Quantum.PlayerRef Player;
+    [Quantum.LocalReference]
+    public global::EntityPrototype Entity;
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    public System.Int32 score;
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    public Quantum.QBoolean bounceBallAbility;
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    public Photon.Deterministic.FPVector2 lastInputDirection;
+    public Photon.Deterministic.FP dashForce;
+    public Photon.Deterministic.FP dashTime;
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    public Quantum.QBoolean isDashing;
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    public Photon.Deterministic.FP currentDashTime;
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    public System.Int32 colorR;
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    public System.Int32 colorG;
+    [Quantum.Inspector.HideInInspectorAttribute()]
+    public System.Int32 colorB;
+
+    public sealed override Quantum.Prototypes.PlayerLink_Prototype Convert(EntityPrototypeConverter converter) {
+      var result = new Quantum.Prototypes.PlayerLink_Prototype();
+      result.Player = this.Player;
+      converter.Convert(this.Entity, out result.Entity);
+      result.score = this.score;
+      result.bounceBallAbility = this.bounceBallAbility;
+      result.lastInputDirection = this.lastInputDirection;
+      result.dashForce = this.dashForce;
+      result.dashTime = this.dashTime;
+      result.isDashing = this.isDashing;
+      result.currentDashTime = this.currentDashTime;
+      result.colorR = this.colorR;
+      result.colorG = this.colorG;
+      result.colorB = this.colorB;
+      return result;
+    }
+  }
+  [System.SerializableAttribute()]
   [Quantum.Prototypes.PrototypeAttribute(typeof(Quantum.PhysicsJoints3D))]
   public class PhysicsJoints3D_Prototype : Quantum.PrototypeAdapter<Quantum.Prototypes.PhysicsJoints3D_Prototype> {
     [Quantum.Inspector.DynamicCollectionAttribute()]

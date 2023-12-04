@@ -27,7 +27,10 @@ namespace Quantum.Player
             if (frame.Global->gameStarted && hasLink)
             {
                 input = *frame.GetPlayerInput(link->Player);
+                link->lastInputDirection = input.Direction;
             }
+
+            #region Jump
 
             if (input.Jump.WasPressed && link->bounceBallAbility)
             {
@@ -40,7 +43,31 @@ namespace Quantum.Player
                 }
             }
 
-            filter.CharacterController->Move(frame, filter.Entity, input.Direction.XOY);
+            #endregion
+
+            #region Dash Logic
+
+            if (input.Dash.WasPressed && hasLink && !link->isDashing && frame.Unsafe.TryGetPointer<PhysicsBody3D>(filter.Entity, out var body))
+            {
+                body->AddLinearImpulse(link->lastInputDirection.XOY.Normalized * link->dashForce);
+                link->currentDashTime = link->dashTime;
+                link->isDashing = true;
+            }
+
+            if (hasLink && link->isDashing)
+            {
+                link->currentDashTime -= frame.DeltaTime;
+
+                if (link->currentDashTime <= 0)
+                {
+                    frame.Unsafe.GetPointer<PhysicsBody3D>(filter.Entity)->Velocity = Photon.Deterministic.FPVector3.Zero;
+                    link->isDashing = false;
+                }
+            }
+
+            #endregion
+
+            filter.CharacterController->Move(frame, filter.Entity, link->isDashing ? Photon.Deterministic.FPVector3.Zero : input.Direction.XOY.Normalized);
         }
 
         private void Stats(Frame frame, Filter filter)

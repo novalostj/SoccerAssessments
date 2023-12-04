@@ -89,6 +89,7 @@
     <Compile Include="SimulationConfig.User.cs" />
     <Compile Include="SystemSetup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helpers\MyUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="db.json" />
@@ -96,14 +97,11 @@
   <ItemGroup>
     <None Include="Game\BallInstance.qtn" />
     <None Include="Game\globals.qtn" />
-    <None Include="Game\GoalEvent.qtn" />
     <None Include="Game\GoalInstance.qtn" />
     <None Include="Player\Input.qtn" />
     <None Include="Player\PlayerLink.qtn" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utils\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent Condition="'$(OS)' == 'Windows_NT'">"$(ProjectDir)..\..\tools\codegen_unity\quantum.codegen.unity.host.exe" "$(TargetDir)\quantum.code.dll" "$(ProjectDir)..\..\quantum_unity\Assets"</PostBuildEvent>

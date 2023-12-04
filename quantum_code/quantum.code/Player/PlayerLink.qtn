@@ -1,6 +1,15 @@
 component PlayerLink
 {
     player_ref Player;
-    int score;
-    bool bounceBallAbility;
+    entity_ref Entity;
+    [HideInInspector] int score;
+    [HideInInspector] bool bounceBallAbility;
+    [HideInInspector] FPVector2 lastInputDirection;
+    FP dashForce;
+    FP dashTime;
+    [HideInInspector] bool isDashing;
+    [HideInInspector] FP currentDashTime;
+    [HideInInspector] int colorR;
+    [HideInInspector] int colorG;
+    [HideInInspector] int colorB;
 }
